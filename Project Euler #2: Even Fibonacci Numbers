@@ -1,0 +1,44 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    long int t = 0;
+    long int* num;
+    long int total = 0;
+    num = (long int*)malloc(sizeof(long int)*100000);
+    long int fibarray[1000];
+
+    
+    for(int j = 2; j < 1000-3; j++){
+        fibarray[0] = 0;
+        fibarray[1] = 1;
+        fibarray[2] = 1;
+        fibarray[j+1] = fibarray[j] + fibarray[j-1];
+    }
+    
+    //get the expected amount of input from the user
+    
+    scanf("%ld", &t);
+    for(int i = 0; i < t; i++){
+        scanf("%ld", num+i);
+    }
+   
+    for(int i = 0; i < t; i++){
+        //printf("%d\n", *(num+i));
+        for(int j = 0; j < 90; j++){
+            if((fibarray[j] <= *(num+i)) && (fibarray[j]%2 == 0)){
+                total += fibarray[j];
+            }
+    }
+ 
+        printf("%ld\n", total);
+        total = 0;
+    }
+
+    return 0;
+}
