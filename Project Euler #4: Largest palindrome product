@@ -1,0 +1,62 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int findPalindrome(int nums);
+
+int findPalindrome(int nums){
+    char charNums[100];
+    //int length = strlen(charNums) -1;
+    int p = 0;
+    
+   sprintf(charNums, "%d", nums);
+    int length = strlen(charNums) -1;
+    for(int i = 0; i < length; i++){
+        if(charNums[i] == charNums[length-i]){
+           p++;
+            if(p == length){
+                return 1;
+        }
+        }
+    }
+    
+    return 0;
+}
+
+int main(){
+    int t;
+    int multi = 0;
+    int highest = 0;
+    int na = 0;
+    
+    
+    scanf("%d",&t);
+    for(int a0 = 0; a0 < t; a0++){
+        int n = 0; 
+        // scan input as an integer
+        scanf("%d", &n);
+
+        //na = sqrt(n);
+        //n = atoi(nums);
+        if((n > 101101) && (n < 1000000)){
+            highest = 0;
+            na = sqrt(n);
+        for(int i = na; i < na +999; i++){
+            for(int j = 100; j <= na + 800; j++){
+                if((i/100 < 10) && (j/100 < 10) && (i*j < n -1)){
+                multi = i*j;
+                if((findPalindrome(multi)) && (multi > highest) && (multi < n-1) && (multi/100000 >= 1) && (multi/100000 < 10)){
+                    highest = multi;
+                    }    
+                }
+            }
+        }
+       printf("%d\n", highest);
+        }
+    }
+    return 0;
+}
