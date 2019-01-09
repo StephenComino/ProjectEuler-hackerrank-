@@ -1,0 +1,35 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    long int t; 
+    long int total = 0;
+    long int sqrSum = 0;
+    long int sqrComp = 0;
+    scanf("%ld",&t);
+    if(t >= 1 && t <= 10000){
+    for(int a0 = 0; a0 < t; a0++){
+        long int n = 0; 
+        total = 0;
+        sqrSum = 0;
+        sqrComp = 0;
+        scanf("%ld",&n);
+        
+        if(n >= 1 && n <= 10000){
+            sqrComp = (n*(n+1)*(2*n+1))/6;
+            sqrSum = n*(n+1)/2;
+            sqrSum = pow(sqrSum, 2);
+       
+            total = sqrSum-sqrComp;
+       
+        printf("%ld\n", total);
+    }
+    }
+    }
+    return 0;
+}
