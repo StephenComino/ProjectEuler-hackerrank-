@@ -1,0 +1,34 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    int t; 
+    scanf("%d",&t);
+    for(int a0 = 0; a0 < t; a0++){
+        int n; 
+        int min = 0;
+        int tmp = 0;
+        scanf("%d",&n);
+        if(n <= 40 && n >= 1){
+        for(int j = 1; j < 10000000; j++){
+            tmp = 0;
+            for(int i = 1; i <= n; i++){
+                if ((j%i == 0)){
+                    tmp++;
+                    if(tmp == n){
+                        min = j;
+                        j = 10000000;
+                    }
+                }
+            }
+        }
+        }
+        printf("%d\n", min);
+    }
+    return 0;
+}
